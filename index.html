@@ -14,152 +14,205 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.6;
+            color: #222222;
+            line-height: 1.5;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
         .container {
-            max-width: 800px;
+            max-width: 840px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Шапка / Обложка кейса */
+        /* Шапка / Обложка кейса в стиле Стартер */
         .header-section {
-            padding: 80px 0 60px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 100px 0 60px 0;
+            border-bottom: 1px solid #eeeff2;
             margin-bottom: 60px;
         }
         .meta-tag {
-            font-size: 13px;
+            font-size: 14px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #8c8c8c;
-            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            color: #7d808a;
+            margin-bottom: 24px;
             display: block;
         }
         h1 {
-            font-size: 42px;
+            font-size: 56px;
             font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -1px;
-            color: #1a1a1a;
-            margin-bottom: 30px;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            color: #111111;
+            margin-bottom: 35px;
         }
-        @media (max-width: 600px) {
-            h1 { font-size: 32px; }
-        }
-
-        /* Вводный текст и цитаты */
+        
+        /* Вводный текст и акцентные цитаты */
         .lead-text {
-            font-size: 18px;
-            color: #4a4a4a;
-            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 1.45;
+            color: #3a3d46;
+            margin-bottom: 24px;
         }
         .quote-block {
-            background-color: #f9f9f9;
-            border-left: 4px solid #1a1a1a;
-            padding: 25px 30px;
-            margin: 40px 0;
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 1.5;
-            color: #1a1a1a;
+            background-color: #f6f8fa;
+            border-radius: 12px;
+            padding: 32px 40px;
+            margin: 48px 0;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #111111;
+            letter-spacing: -0.5px;
+        }
+
+        /* Иллюстрации и макеты */
+        .case-image-wrapper {
+            margin: 48px 0;
+            width: 100%;
+        }
+        .case-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+        }
+        .image-caption {
+            font-size: 14px;
+            color: #7d808a;
+            margin-top: 14px;
+            display: block;
+            text-align: center;
         }
 
         /* Структурные разделы (01 // , 02 //) */
         .section-wrapper {
-            margin-bottom: 70px;
+            margin-bottom: 80px;
         }
         .section-number {
-            font-family: monospace;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            color: #8c8c8c;
+            color: #9aa0a6;
+            text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 12px;
             display: block;
         }
         h2 {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 25px;
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #111111;
+            margin-bottom: 28px;
         }
         h3 {
-            font-size: 22px;
+            font-size: 26px;
             font-weight: 700;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            color: #1a1a1a;
+            letter-spacing: -0.5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #111111;
+            line-height: 1.3;
         }
         p {
-            font-size: 16px;
-            color: #333333;
-            margin-bottom: 20px;
+            font-size: 20px;
+            color: #3a3d46;
+            margin-bottom: 24px;
+            line-height: 1.55;
         }
 
         /* Карточки элементов дорожной карты */
         .element-card {
-            border-top: 1px solid #eaeaea;
-            padding-top: 30px;
-            margin-top: 40px;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #eeeff2;
+            padding: 40px;
+            margin-top: 32px;
+            margin-bottom: 32px;
         }
         .element-tag {
             font-size: 14px;
             font-weight: 700;
-            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #7d808a;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 12px;
         }
         .element-card h4 {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 15px;
-            color: #1a1a1a;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+            color: #111111;
         }
         
         /* Списки */
         ul {
-            margin-bottom: 20px;
-            padding-left: 20px;
+            margin-bottom: 24px;
+            padding-left: 24px;
         }
         li {
-            font-size: 16px;
-            color: #333333;
-            margin-bottom: 15px;
+            font-size: 19px;
+            color: #3a3d46;
+            margin-bottom: 16px;
+            line-height: 1.5;
         }
         li strong {
-            color: #1a1a1a;
+            color: #111111;
+            font-weight: 600;
         }
 
         /* Финальный призыв */
         .final-call {
-            font-size: 20px;
+            font-size: 26px;
             font-weight: 700;
-            margin-top: 30px;
-            color: #1a1a1a;
+            letter-spacing: -0.5px;
+            margin-top: 40px;
+            color: #111111;
+            line-height: 1.3;
+        }
+
+        /* Адаптивность для мобильных экранов */
+        @media (max-width: 600px) {
+            h1 { font-size: 36px; letter-spacing: -1px; }
+            h2 { font-size: 28px; }
+            h3 { font-size: 22px; }
+            .lead-text { font-size: 19px; }
+            p { font-size: 18px; }
+            li { font-size: 17px; }
+            .quote-block { font-size: 20px; padding: 24px; }
+            .element-card { padding: 24px; }
+            .header-section { padding-top: 60px; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Шапка -->
         <header class="header-section">
-            <span class="meta-tag">Маркетингово-операционный кейс Направление: Антикризисный CRM-маркетинг & Operations</span>
+            <span class="meta-tag">Маркетингово-операционный кейс • Направление: Антикризисный CRM-маркетинг & Operations</span>
             <h1>Интернет ложится, а продажи – нет: как Суши Мастер спасает заказы в условиях регулярных сбоев связи</h1>
             
             <p class="lead-text"><strong>Бизнес-контекст</strong></p>
             <p class="lead-text">В последнее время мы все чаще сталкиваемся с тем, что привычная цифровая инфраструктура связи работает нестабильно. Внезапные перебои с интернетом, «упавшая» онлайн-оплата на сайтах и зависающие платежные терминалы в руках у курьеров — это новая реальность ритейла и фудтеха. Для любого бизнеса в сфере доставки еды такие сбои грозят гарантированной потерей клиентов прямо на этапе чекаута в любой день недели.</p>
             <p class="lead-text">Пока конкуренты слепо надеются на стабильное беспроводное соединение и теряют заказы из-за технических ошибок эквайринга, мы в Суши Мастер решили адаптироваться и действовать на опережение.</p>
             
+            <div class="case-image-wrapper">
+                <img src="assets/Pin.png" alt="Суши Мастер Колл-центр Антикризис" class="case-image">
+                <span class="image-caption">Когда цифровая оплата недоступна, на смену приходит старый добрый голос</span>
+            </div>
+
             <div class="quote-block">
                 Наша цель проста: ни один гость не должен остаться без любимых роллов, а ни одна наша торговая точка — без прибыли, независимо от того, как сегодня работает сеть и сотовые операторы.
             </div>
         </header>
 
-        <!-- Раздел 01 -->
         <section class="section-wrapper">
             <span class="section-number">01 // Вызовы рынка</span>
             <h2>Проблема</h2>
@@ -172,7 +225,6 @@
             </ul>
         </section>
 
-        <!-- Раздел 02 -->
         <section class="section-wrapper">
             <span class="section-number">02 // Антикризисная стратегия</span>
             <h2>Решение</h2>
@@ -180,7 +232,6 @@
             <p>Мы разработали и внедрили комплексную дорожную карту по удержанию заказов в периоды жестких ограничений связи. Главный инсайт стратегии: если цифровые каналы штормит, нужно максимально упростить и сократить путь клиента до прямого контакта с человеком. Мы сознательно реанимировали телефонные продажи, сделав их главным спасательным кругом для выручки.</p>
             <p>Ниже подробно разобраны 4 ключевых элемента нашей антикризисной дорожной карты.</p>
 
-            <!-- Элемент 1 -->
             <div class="element-card">
                 <span class="element-tag">Элемент №1 // UX/UI Сайтов</span>
                 <h4>Информационные растяжки вместо брошенных корзин</h4>
@@ -191,7 +242,6 @@
                 </ul>
             </div>
 
-            <!-- Элемент 2 -->
             <div class="element-card">
                 <span class="element-tag">Элемент №2 // Прямые коммуникации</span>
                 <h4>Push и Email как превентивный удар</h4>
@@ -202,7 +252,6 @@
                 </ul>
             </div>
 
-            <!-- Элемент 3 -->
             <div class="element-card">
                 <span class="element-tag">Элемент №3 // Социальные сети</span>
                 <h4>Честность как триггер лояльности в Telegram и ВК</h4>
@@ -213,7 +262,6 @@
                 </ul>
             </div>
 
-            <!-- Элемент 4 -->
             <div class="element-card">
                 <span class="element-tag">Элемент №4 // Мессенджеры</span>
                 <h4>Органический дисклеймер в промо-рассылках</h4>
@@ -225,15 +273,13 @@
             </div>
         </section>
 
-        <!-- Раздел 03 -->
         <section class="section-wrapper">
             <span class="section-number">03 // Операционный результат</span>
             <h2>Ситуация под контролем</h2>
-            <p>В итоге мы получили управляемый трафик вместо хаоса. Пока остальные будут разбираться с негавитом из-за сорванных транзакций и зависших шлюзов, Суши Мастер готов к повышенным нагрузкам на колл-центр.</p>
+            <p>В итоге мы получили управляемый трафик вместо хаоса. Пока остальные будут разбираться с негативом из-за сорванных транзакций и зависших шлюзов, Суши Мастер готов к повышенным нагрузкам на колл-центр.</p>
             <p>Благодаря оперативно развернутой дорожной карте мы перехватываем спрос в моменты сбоев и конвертируем его в реальную выручку через телефонные продажи.</p>
         </section>
 
-        <!-- Раздел 04 -->
         <section class="section-wrapper">
             <span class="section-number">04 // Главный вывод</span>
             <h2>Адаптируйся или теряй заказы</h2>
