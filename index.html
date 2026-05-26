@@ -1,319 +1,242 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интернет ложится, а продажи – нет | Суши Мастер</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        /* Базовые стили и сброс */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            color: #222222;
-            line-height: 1.5;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
         }
-        .container {
-            max-width: 840px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Шапка / Обложка кейса */
-        .header-section {
-            padding: 100px 0 60px 0;
-            border-bottom: 1px solid #eeeff2;
-            margin-bottom: 60px;
-        }
-        .meta-tag {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #7d808a;
-            margin-bottom: 24px;
-            display: block;
-        }
-        h1 {
-            font-size: 56px;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            color: #111111;
-            margin-bottom: 35px;
-        }
-        
-        /* Текст и маркеры выделения */
-        .lead-text {
-            font-size: 22px;
-            font-weight: 400;
-            line-height: 1.45;
-            color: #3a3d46;
-            margin-bottom: 24px;
-        }
-        .highlight {
-            color: #e63946;
-            font-weight: 600;
-        }
-        
-        /* Цитата-манифест */
-        .quote-block {
-            background-color: #fdf2f4; /* Мягкий красный оттенок фона */
-            border-left: 5px solid #e63946; /* Фирменная красная черта */
-            border-radius: 0 12px 12px 0;
-            padding: 32px 40px;
-            margin: 48px 0;
-            font-size: 24px;
-            font-weight: 600;
-            line-height: 1.4;
-            color: #111111;
-            letter-spacing: -0.5px;
-        }
-
-        /* Иллюстрации и макеты */
-        .case-image-wrapper {
-            margin: 48px 0;
-            width: 100%;
-        }
-        .case-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 16px;
-            display: block;
-            margin: 0 auto;
-            box-shadow: 0 10px 40px rgba(230, 57, 70, 0.08); /* Легкое красное свечение для объема */
-        }
-        .image-caption {
-            font-size: 14px;
-            color: #7d808a;
-            margin-top: 14px;
-            display: block;
-            text-align: center;
-        }
-
-        /* Структурные разделы */
-        .section-wrapper {
-            margin-bottom: 80px;
-        }
-        .section-number {
-            font-size: 15px;
-            font-weight: 700;
-            color: #e63946; /* Красный акцент на нумерацию */
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            display: block;
-        }
-        h2 {
-            font-size: 38px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            color: #111111;
-            margin-bottom: 28px;
-        }
-        h3 {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: #111111;
-            line-height: 1.3;
-        }
-        p {
-            font-size: 20px;
-            color: #3a3d46;
-            margin-bottom: 24px;
-            line-height: 1.55;
-        }
-
-        /* Карточки элементов дорожной карты */
-        .element-card {
-            background: #ffffff;
-            border-radius: 16px;
-            border: 1px solid #eeeff2;
-            padding: 40px;
-            margin-top: 32px;
-            margin-bottom: 32px;
-            transition: border-color 0.3s ease;
-        }
-        .element-card:hover {
-            border-color: rgba(230, 57, 70, 0.3); /* Подсветка при наведении */
-        }
-        .element-tag {
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #e63946; /* Элементы дорожной карты выделены красным */
-            display: block;
-            margin-bottom: 12px;
-        }
-        .element-card h4 {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 20px;
-            color: #111111;
-        }
-        
-        /* Списки и внутренние теги */
-        ul {
-            margin-bottom: 24px;
-            padding-left: 24px;
-        }
-        li {
-            font-size: 19px;
-            color: #3a3d46;
-            margin-bottom: 16px;
-            line-height: 1.5;
-        }
-        li strong {
-            color: #111111;
-            font-weight: 600;
-        }
-        .inline-tag {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #e63946;
-            background: #fdf2f4;
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-right: 6px;
-            vertical-align: middle;
-        }
-
-        /* Финальный призыв */
-        .final-call {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-top: 40px;
-            color: #e63946; /* Финальный слоган горит красным */
-            line-height: 1.3;
-            border-top: 2px solid #eeeff2;
-            padding-top: 30px;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 600px) {
-            h1 { font-size: 36px; letter-spacing: -1px; }
-            h2 { font-size: 28px; }
-            h3 { font-size: 22px; }
-            .lead-text { font-size: 19px; }
-            p { font-size: 18px; }
-            li { font-size: 17px; }
-            .quote-block { font-size: 20px; padding: 24px; }
-            .element-card { padding: 24px; }
-            .header-section { padding-top: 60px; }
-        }
+        /* Фирменный красный цвет Суши Мастер из логотипа */
+        .brand-red { color: #e30613; }
+        .bg-brand-red { background-color: #e30613; }
+        .border-brand-red { border-color: #e30613; }
+        .selection\:bg-brand-red::selection { background-color: #e30613; color: white; }
     </style>
 </head>
-<body>
+<body class="bg-white text-zinc-900 antialiased selection:bg-brand-red selection:text-white">
 
-    <div class="container">
-        <header class="header-section">
-            <span class="meta-tag">Маркетингово-операционный кейс • Направление: Антикризисный CRM-маркетинг & Operations</span>
-            <h1>Интернет ложится, а продажи – нет: как Суши Мастер спасает заказы в условиях регулярных сбоев связи</h1>
-            
-            <p class="lead-text"><strong>Бизнес-контекст</strong></p>
-            <p class="lead-text">В последнее время мы все чаще сталкиваемся с тем, что привычная цифровая инфраструктура связи работает нестабильно. Внезапные перебои с интернетом, «упавшая» онлайн-оплата на сайтах и зависающие платежные терминалы в руках у курьеров — это новая реальность ритейла и фудтеха. Для любого бизнеса в сфере доставки еды такие сбои грозят <span class="highlight">гарантированной потерей клиентов</span> прямо на этапе чекаута в любой день недели.</p>
-            <p class="lead-text">Пока конкуренты слепо надеются на стабильное беспроводное соединение и теряют заказы из-за технических ошибок эквайринга, мы в Суши Мастер решили адаптироваться и <span class="highlight">действовать на опережение</span>.</p>
-            
-            <div class="case-image-wrapper">
-                <img src="assets/Pin.png" alt="Суши Мастер Колл-центр Антикризис" class="case-image">
-                <span class="image-caption">Когда цифровая оплата недоступна, на смену приходит старый добрый голос</span>
+    <header class="w-full border-b border-zinc-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 h-24 flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="assets/logo.png" alt="Суши Мастер" class="h-12 w-auto object-contain">
             </div>
+            <span class="text-xs font-mono tracking-widest text-zinc-400 uppercase">Маркетингово-операционный кейс</span>
+        </div>
+    </header>
 
-            <div class="quote-block">
-                Наша цель проста: ни один гость не должен остаться без любимых роллов, а ни одна наша торговая точка — без прибыли, независимо от того, как сегодня работает сеть и сотовые операторы.
+    <main class="max-w-4xl mx-auto px-6 py-16 md:py-24 space-y-20 md:space-y-28">
+        
+        <header class="space-y-6">
+            <div class="inline-flex items-center gap-2 bg-zinc-50 border border-zinc-200 px-4 py-1.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                <span class="text-zinc-500 text-xs font-medium tracking-wider uppercase">Антикризисный CRM-маркетинг & Operations</span>
             </div>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-zinc-900 leading-none">
+                Интернет ложится, а продажи – нет
+            </h1>
+            <p class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-800 leading-tight pt-2">
+                Как Суши Мастер спасает заказы в условиях регулярных сбоев связи
+            </p>
+            
+            <p class="text-lg md:text-xl text-zinc-500 font-light leading-relaxed pt-4 max-w-3xl">
+                <strong>Бизнес-контекст</strong><br>
+                В последнее время мы все чаще сталкиваемся с тем, что привычная цифровая инфраструктура связи работает нестабильно. Внезапные перебои с интернетом, «упавшая» онлайн-оплата на сайтах и зависающие платежные терминалы в руках у курьеров — это новая реальность ритейла и фудтеха. Для любого бизнеса в сфере доставки еды такие сбои грозят гарантированной потерей клиентов прямо на этапе чекаута в любой день недели.
+            </p>
+            <p class="text-lg md:text-xl text-zinc-500 font-light leading-relaxed max-w-3xl">
+                Пока конкуренты слепо надеются на стабильное беспроводное соединение и теряют заказы из-за технических ошибок эквайринга, мы в Суши Мастер решили адаптироваться и действовать на опережение.
+            </p>
         </header>
 
-        <section class="section-wrapper">
-            <span class="section-number">01 // Вызовы рынка</span>
-            <h2>Проблема</h2>
-            <h3>Ошибка 404 в кассовом чеке: как технический сбой выжигает конверсию</h3>
-            <p>Когда у клиента падает интернет или зависает шлюз онлайн-оплаты, бизнес сталкивается с тремя критическими угрозами:</p>
-            <ul>
-                <li><strong>Рост брошенных корзин:</strong> Гость сформировал заказ, настроился на ужин, но споткнулся на этапе оплаты. Второй раз вводить данные карты или перезагружать страницу он, скорее всего, не будет — у него падает уровень доверия, и он уходит к агрегаторам или локальным конкурентам.</li>
-                <li><strong>Кассовые разрывы на точках:</strong> Продукты закуплены, повара на смене, но из-за «лёгшего» интернета поток заказов искусственно блокируется.</li>
-                <li><strong>Волна негатива в поддержке:</strong> Перегруженный колл-центр не справляется с агрессивными звонками в стиле «Деньги списались, а где мой статус заказа?!».</li>
-            </ul>
+        <section class="py-2">
+            <div class="bg-zinc-50 rounded-2xl overflow-hidden border border-zinc-200">
+                <img src="assets/Pin.png" alt="Суши Мастер Колл-центр Антикризис" class="w-full h-auto object-cover">
+            </div>
+            <span class="text-xs text-zinc-400 italic block mt-2 text-center">Когда цифровая оплата недоступна, на смену приходит старый добрый голос</span>
         </section>
 
-        <section class="section-wrapper">
-            <span class="section-number">02 // Антикризисная стратегия</span>
-            <h2>Решение</h2>
-            <h3>Разворачиваем аналоговый щит: перевод онлайн-потока в «старый добрый голос»</h3>
-            <p>Мы разработали и внедрили комплексную дорожную карту по удержанию заказов в периоды жестких ограничений связи. Главный инсайт стратегии: <span class="highlight">если цифровые каналы штормит, нужно максимально упростить и сократить путь клиента до прямого контакта с человеком.</span> Мы сознательно реанимировали телефонные продажи, сделав их главным спасательным кругом для выручки.</p>
-            <p>Ниже подробно разобраны 4 ключевых элемента нашей антикризисной дорожной карты.</p>
-
-            <div class="element-card">
-                <span class="element-tag">Элемент №1 // UX/UI Сайтов</span>
-                <h4>Информационные растяжки вместо брошенных корзин</h4>
-                <p>Когда ложится онлайн-оплата, гость не должен блуждать по интерфейсу сайта в поисках альтернативного решения или бесконечно обновлять страницу банка.</p>
-                <ul>
-                    <li><span class="inline-tag">Механика</span> Мы оперативно развернули сквозные яркие инфо-баннеры (растяжки) в каждом городе присутствия для каждого нашего бренда.</li>
-                    <li><span class="inline-tag">Фокус</span> На баннерах размещена крупная, контрастная, кликабельная кнопка с номером телефона колл-центра. <span class="highlight">Одно нажатие на экране смартфона — и гость уже на линии с оператором.</span> Это мгновенно перехватывает «зависающий» трафик и спасает корзину от удаления.</li>
-                </ul>
-            </div>
-
-            <div class="element-card">
-                <span class="element-tag">Элемент №2 // Прямые коммуникации</span>
-                <h4>Push и Email как превентивный удар</h4>
-                <p>Мы задействовали ключевые каналы прямой связи с клиентской базой (CRM), чтобы заранее предупредить гостей о возможных сетевых аномалиях и выдать им четкий, понятный алгоритм действий.</p>
-                <ul>
-                    <li><span class="inline-tag">Мобильные пуши</span> Мы отказались от длинных текстов в пользу коротких, емких уведомлений. Главное нововведение — мы прямо в текст пуша «зашиваем» прямые номера телефонов колл-центра. Даже если приложение из-за отсутствия сети перестанет подгружать меню, нужный контакт уже останется на экране смартфона гостя.</li>
-                    <li><span class="inline-tag">Email-рассылки</span> Подготовили серию писем с заботливым предупреждением. Мы честно говорим о периодических сбоях на стороне провайдеров и даем наглядную пошаговую шпаргалку, как гарантированно оформить доставку, минуя капризные интернет-протоколы.</li>
-                </ul>
-            </div>
-
-            <div class="element-card">
-                <span class="element-tag">Элемент №3 // Социальные сети</span>
-                <h4>Честность как триггер лояльности в Telegram и ВК</h4>
-                <p>В официаческих сообществах ВКонтакте, Telegram-каналах и в приложении MAX мы принципиально отказались от сухих корпоративных формулировок, замалчивания проблем или стандартных отговорок в духе «Технические работы».</p>
-                <ul>
-                    <li><span class="inline-tag">Механика</span> Опубликовали прямые, открытые посты-инструкции. Посыл максимально прозрачный: «Друзья, если интернет штормит, а безнал не проходит — не переживайте. Готовьте наличные и смело диктуйте заказ по телефону!».</li>
-                    <li><span class="inline-tag">Бизнес-эффект</span> Искренность и забота в кризисный момент сработали как мощный бустер лояльности. Аудитория видит, что бренд контролирует ситуацию, не прячется от проблем и предлагает реальную альтернативу.</li>
-                </ul>
-            </div>
-
-            <div class="element-card">
-                <span class="element-tag">Элемент №4 // Мессенджеры</span>
-                <h4>Органический дисклеймер в промо-рассылках</h4>
-                <p>Мы пересмотрели логику наших регулярных продуктовых и скидочных рассылок в мессенджерах (WhatsApp, Viber).</p>
-                <ul>
-                    <li><span class="inline-tag">Механика</span> В тело каждого стандартного промо-оффера мы органично вшили важный дисклеймер. Мягко напомнили клиентам о нестабильности связи на рынке в последнее время и деликатно подсказали, что наличные деньги — это самый надежный и бесперебойный способ оплаты при любых технических неполадках у курьерских служб.</li>
-                    <li><span class="inline-tag">Результат</span> Вместо паники и хаоса на этапе доставки мы получили подготовленного клиента, у которого к приезду курьера уже отсчитана нужная сумма без необходимости искать сеть для терминала.</li>
-                </ul>
+        <section class="pt-2">
+            <div class="text-2xl md:text-4xl font-extrabold text-zinc-900 py-6 border-l-4 border-brand-red pl-6 tracking-tight leading-tight">
+                Наша цель проста: ни один гость не должен остаться без любимых роллов, а ни одна наша торговая точка — без прибыли, независимо от того, как сегодня работает сеть и сотовые операторы.
             </div>
         </section>
 
-        <section class="section-wrapper">
-            <span class="section-number">03 // Операционный результат</span>
-            <h2>Ситуация под контролем</h2>
-            <p>В итоге мы получили управляемый трафик вместо хаоса. Пока остальные будут разбираться с негативом из-за сорванных транзакций и зависших шлюзов, Суши Мастер готов к повышенным нагрузкам на колл-центр.</p>
-            <p>Благодаря оперативно развернутой дорожной карте мы перехватываем спрос в моменты сбоев и <span class="highlight">конвертируем его в реальную выручку через телефонные продажи</span>.</p>
-        </section>
-
-        <section class="section-wrapper">
-            <span class="section-number">04 // Главный вывод</span>
-            <h2>Адаптируйся или теряй заказы</h2>
-            <p>Современный фудтех — это не только красивые фотографии сетов и скорость работы мобильного софта. Это способность бизнеса оставаться жизнеспособным, даже если весь мир вокруг временно «уйдет в офлайн».</p>
-            <p>Инвестиции в альтернативные, простые каналы коммуникации и честный диалог с гостем — гарантия того, что ваши продажи не упадут вместе с серверами провайдеров.</p>
+        <section class="space-y-4 border-t border-zinc-100 pt-12">
+            <span class="text-xs font-mono uppercase text-zinc-400 tracking-widest block">01 // Вызовы рынка</span>
+            <h2 class="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight">
+                Проблема
+            </h2>
+            <p class="text-xl md:text-2xl font-bold text-zinc-500 tracking-tight leading-tight">
+                Ошибка 404 в кассовом чеке: как технический сбой выжигает конверсию
+            </p>
             
-            <p class="final-call">Всем отличных продаж, стабильного потока и высоких чеков! Всё получится!</p>
+            <div class="text-base md:text-lg text-zinc-600 font-light space-y-6 leading-relaxed pt-4">
+                <p>
+                    Когда у клиента падает интернет или зависает шлюз онлайн-оплаты, бизнес сталкивается с тремя критическими угрозами:
+                </p>
+                <div class="bg-zinc-50 p-6 md:p-8 rounded-2xl border border-zinc-150 text-zinc-800 font-normal space-y-4">
+                    <p>• <strong>Рост брошенных корзин:</strong> Гость сформировал заказ, настроился на ужин, но споткнулся на этапе оплаты. Второй раз вводить данные карты или перезагружать страницу он, скорее всего, не будет — у него падает уровень доверия, и он уходит к агрегаторам или локальным конкурентам.</p>
+                    <p>• <strong>Кассовые разрывы на точках:</strong> Продукты закуплены, повара на смене, но из-за «лёгшего» интернета поток заказов искусственно блокируется.</p>
+                    <p>• <strong>Волна негатива в поддержке:</strong> Перегруженный колл-центр не справляется с агрессивными звонками в стиле «Деньги списались, а где мой статус заказа?!».</p>
+                </div>
+            </div>
         </section>
-    </div>
+
+        <section class="space-y-4 border-t border-zinc-100 pt-12">
+            <span class="text-xs font-mono uppercase text-zinc-400 tracking-widest block">02 // Антикризисная стратегия</span>
+            <h2 class="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight">
+                Решение
+            </h2>
+            <p class="text-xl md:text-2xl font-bold text-zinc-500 tracking-tight leading-tight">
+                Разворачиваем аналоговый щит: перевод онлайн-потока в «старый добрый голос»
+            </p>
+            <p class="text-base md:text-lg text-zinc-600 font-light leading-relaxed pt-2">
+                Мы разработали и внедрили комплексную дорожную карту по удержанию заказов в периоды жестких ограничений связи. Главный инсайт стратегии: если цифровые каналы штормит, нужно максимально упростить и сократить путь клиента до прямого контакта с человеком. Мы сознательно реанимировали телефонные продажи, сделав их главным спасательным кругом для выручки.
+            </p>
+            <p class="text-base md:text-lg text-zinc-600 font-light leading-relaxed">
+                Ниже подробно разобраны 4 ключевых элемента нашей антикризисной дорожной карты.
+            </p>
+        </section>
+
+        <section class="space-y-24 border-t border-zinc-100 pt-12">
+            
+            <div class="space-y-6">
+                <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
+                    <span class="text-xs font-mono text-brand-red font-bold uppercase tracking-widest">Элемент №1 // UX/UI Сайтов</span>
+                    <span class="text-xs font-mono text-zinc-400">Интерфейсы</span>
+                </div>
+                <h3 class="text-2xl md:text-4xl font-extrabold text-zinc-900 tracking-tight">Информационные растяжки вместо брошенных корзин</h3>
+                <p class="text-base md:text-lg text-zinc-700 font-light leading-relaxed">
+                    Когда ложится онлайн-оплата, гость не должен блуждать по интерфейсу сайта в поисках альтернативного решения или бесконечно обновлять страницу банка.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <div class="space-y-1 bg-zinc-50/50 p-5 rounded-xl border border-zinc-100">
+                        <h4 class="text-zinc-900 font-bold text-base md:text-lg">Механика</h4>
+                        <p class="text-zinc-600 text-sm md:text-base font-light leading-relaxed">Мы оперативно развернули сквозные яркие инфо-баннеры (растяжки) в каждом городе присутствия для каждого нашего бренда.</p>
+                    </div>
+                    <div class="space-y-1 bg-zinc-50/50 p-5 rounded-xl border border-zinc-100">
+                        <h4 class="brand-red font-bold text-base md:text-lg">Фокус элемента</h4>
+                        <p class="text-zinc-600 text-sm md:text-base font-light leading-relaxed">На баннерах размещена крупная, контрастная, кликабельная кнопка с номером телефона колл-центра. Одно нажатие на экране смартфона — и гость уже на линии с оператором. Это мгновенно перехватывает «зависающий» трафик и спасает корзину от удаления.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
+                    <span class="text-xs font-mono text-brand-red font-bold uppercase tracking-widest">Элемент №2 // Прямые коммуникации</span>
+                    <span class="text-xs font-mono text-zinc-400">CRM-рассылки</span>
+                </div>
+                <h3 class="text-2xl md:text-4xl font-extrabold text-zinc-900 tracking-tight">Push и Email как превентивный удар</h3>
+                <p class="text-base md:text-lg text-zinc-700 font-light leading-relaxed">
+                    Мы задействовали ключевые каналы прямой связи с клиентской базой (CRM), чтобы заранее предупредить гостей о возможных сетевых аномалиях и выдать им четкий, понятный алгоритм действий.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <div class="space-y-1 bg-zinc-50/50 p-5 rounded-xl border border-zinc-100">
+                        <h4 class="text-zinc-900 font-bold text-base md:text-lg">Мобильные пуши</h4>
+                        <p class="text-zinc-600 text-sm md:text-base font-light leading-relaxed">Мы отказались от длинных текстов в пользу коротких, емких уведомлений. Главное нововведение — мы прямо в текст пуша «зашиваем» прямые номера телефонов колл-центра. Даже если приложение из-за отсутствия сети перестанет подгружать меню, нужный контакт уже останется на экране смартфона гостя.</p>
+                    </div>
+                    <div class="space-y-1 bg-zinc-50/50 p-5 rounded-xl border border-zinc-100">
+                        <h4 class="brand-red font-bold text-base md:text-lg">Email-рассылки</h4>
+                        <p class="text-zinc-600 text-sm md:text-base font-light leading-relaxed">Подготовили серию писем с заботливым предупреждением. Мы честно говорим о периодических сбоях на стороне провайдеров и даем наглядную пошаговую шпаргалку, как гарантированно оформить доставку, минуя капризные интернет-протоколы.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
+                    <span class="text-xs font-mono text-brand-red font-bold uppercase tracking-widest">Элемент №3 // Социальные сети</span>
+                    <span class="text-xs font-mono text-zinc-400">SMM</span>
+                </div>
+                <h3 class="text-2xl md:text-4xl font-extrabold text-zinc-900 tracking-tight">Честность как триггер лояльности в Telegram и ВК</h3>
+                <p class="text-base md:text-lg text-zinc-700 font-light leading-relaxed">
+                    В официаческих сообществах ВКонтакте, Telegram-каналах и в приложении MAX мы принципиально отказались от сухих корпоративных формулировок, замалчивания проблем или стандартных отговорок в духе «Технические работы».
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <div class="space-y-1 bg-zinc-50/50 p-5 rounded-xl border border-zinc-100">
+                        <h4 class="text-zinc-900 font-bold text-base md:text-lg">Механика</h4>
+                        <p class="text-zinc-600 text-sm md:text-base font-light leading-relaxed">Опубликовали прямые, открытые посты-инструкции. Посыл максимально прозрачный: «Друзья, если интернет штормит, а безнал не проходит — не переживайте. Готовьте наличные и смело диктуйте заказ по телефону!».</p>
+                    </div>
+                    <div class="space-y-1 bg-zinc-50/50 p-5 rounded-xl border border-zinc-100">
+                        <h4 class="brand-red font-bold text-base md:text-lg">Бизнес-эффект</h4>
+                        <p class="text-zinc-600 text-sm md:text-base font-light leading-relaxed">Искренность и забота в кризисный момент сработали как мощный бустер лояльности. Аудитория видит, что бренд контролирует ситуацию, не прячется от проблем и предлагает реальную альтернативу.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="flex items-center justify-between border-b border-zinc-100 pb-3">
+                    <span class="text-xs font-mono text-brand-red font-bold uppercase tracking-widest">Элемент №4 // Мессенджеры</span>
+                    <span class="text-xs font-mono text-zinc-400">Retention</span>
+                </div>
+                <h3 class="text-2xl md:text-4xl font-extrabold text-zinc-900 tracking-tight">Органический дисклеймер в промо-рассылках</h3>
+                <p class="text-base md:text-lg text-zinc-700 font-light leading-relaxed">
+                    Мы пересмотрели логику наших регулярных продуктовых и скидочных рассылок в мессенджерах (WhatsApp, Viber).
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <div class="space-y-1 bg-zinc-50/50 p-5 rounded-xl border border-zinc-100">
+                        <h4 class="text-zinc-900 font-bold text-base md:text-lg">Механика</h4>
+                        <p class="text-zinc-600 text-sm md:text-base font-light leading-relaxed">В тело каждого стандартного промо-оффера мы органично вшили важный дисклеймер. Мягко напомнили клиентам о нестабильности связи на рынке в последнее время и деликатно подсказали, что наличные деньги — это самый надежный и бесперебойный способ оплаты при любых технических неполадках у курьерских служб.</p>
+                    </div>
+                    <div class="space-y-1 bg-zinc-50/50 p-5 rounded-xl border border-zinc-100">
+                        <h4 class="brand-red font-bold text-base md:text-lg">Результат</h4>
+                        <p class="text-zinc-600 text-sm md:text-base font-light leading-relaxed">Вместо паники и хаоса на этапе доставки мы получили подготовленного клиента, у которого к приезду курьера уже отсчитана нужная сумма без необходимости искать сеть для терминала.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="space-y-4 border-t border-zinc-100 pt-12">
+            <span class="text-xs font-mono uppercase text-zinc-400 tracking-widest block">03 // Операционный результат</span>
+            <h2 class="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight">
+                Ситуация под контролем
+            </h2>
+            
+            <div class="text-base md:text-lg text-zinc-600 font-light space-y-6 leading-relaxed pt-2">
+                <p>
+                    В итоге мы получили управляемый трафик вместо хаоса. Пока остальные будут разбираться с негативом из-за сорванных транзакций и зависших шлюзов, Суши Мастер готов к повышенным нагрузкам на колл-центр.
+                </p>
+                <p>
+                    Благодаря оперативно развернутой дорожной карте мы перехватываем спрос в моменты сбоев и конвертируем его в реальную выручку через телефонные продажи.
+                </p>
+            </div>
+        </section>
+
+        <section class="space-y-4 border-t border-zinc-100 pt-12">
+            <span class="text-xs font-mono uppercase text-zinc-400 tracking-widest block">04 // Главный вывод</span>
+            <h2 class="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight">
+                Адаптируйся или теряй заказы
+            </h2>
+            
+            <div class="text-base md:text-lg text-zinc-600 font-light space-y-6 leading-relaxed pt-2">
+                <p>
+                    Современный фудтех — это не только красивые фотографии сетов и скорость работы mobile софта. Это способность бизнеса оставаться жизнеспособным, даже если весь мир вокруг временно «уйдет в офлайн».
+                </p>
+                <p>
+                    Инвестиции в альтернативные, простые каналы коммуникации и честный диалог с гостем — гарантия того, что ваши продажи не упадут вместе с серверами провайдеров.
+                </p>
+            </div>
+        </section>
+
+        <footer class="border-t border-zinc-100 pt-12 space-y-6 text-center md:text-left">
+            <p class="text-xl md:text-2xl font-bold text-zinc-900 leading-tight">
+                Всем отличных продаж, стабильного потока и высоких чеков! Всё получится!
+            </p>
+        </footer>
+
+    </main>
+
+    <footer class="w-full border-t border-zinc-100 bg-zinc-50 py-10 text-center text-xs text-zinc-400 font-mono uppercase tracking-widest">
+        <div>&copy; 2026 Управляющая Компания Суши Мастер. Развернуто на GitHub Pages.</div>
+    </footer>
 
 </body>
 </html>
